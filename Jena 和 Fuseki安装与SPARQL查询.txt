@@ -1,0 +1,13 @@
+1.下载
+http://jena.apache.org/download/index.cgi
+jena和fuseki在同一页面下载
+2.配置JenaHome
+基于JDK1.8
+%JENA_HOME%\bat;%JENA_HOME%\bin
+3.将RDF数据转换以TDB的方式存储
+在JENA安装目录下新建tdb，rdfFile文件夹
+将jena examples/data 目录下的eswc-2006-09-21.rdf文件拷贝到rdfFile文件夹下，重名为eswc2006.rdf
+执行命令
+tdbloader.bat --loc ../tdb ../rdfFile/eswc2006.rdf
+4. 打开fuseki安装目录，将fuseki.war拷贝到webapp目录下
+fuseki-server --loc=E:\apache-jena-3.14.0\tdb /eswc2006
